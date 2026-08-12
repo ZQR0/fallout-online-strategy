@@ -1,3 +1,33 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        deregister: true
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        prefer-ip-address: true   # регистрируется по IP контейнера, а не hostname
+        instance-id: ${spring.application.name}-${random.value}
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

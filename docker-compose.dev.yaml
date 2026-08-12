@@ -6,6 +6,7 @@ volumes:
   postgres_data:
   redis_data:
   kafka_data:
+  consul_data:
 
 # kafka-ui, prometheus, grafana, gateway, eureka, other services
 services:
@@ -126,3 +127,29 @@ services:
     mem_limit: 128m
     mem_reservation: 64m
     cpus: 0.25
+
+  consul:
+    image: hashicorp/consul:2.0
+    container_name: fallout-consul
+    restart: unless-stopped
+    networks:
+      - fallout-network
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: >
+            agent -server -bootstrap-expect=1 -ui
+            -bind=0.0.0.0 -client=0.0.0.0
+            -data-dir=/consul/data
+            -datacenter=dc1
+    volumes:
+      - consul_data:/consul/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8500/v1/status/leader"]
+      interval: 15s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
+    mem_limit: 256m
+    cpus: 0.5
+    mem_reservation: 64m
