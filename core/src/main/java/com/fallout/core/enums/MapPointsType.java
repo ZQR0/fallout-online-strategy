@@ -3,7 +3,7 @@ package com.fallout.core.enums;
 /**
  * All possible type of points on world map
  * */
-public enum MapPoints {
+public enum MapPointsType {
     CAPITAL,
     BASE,
     CITY,
