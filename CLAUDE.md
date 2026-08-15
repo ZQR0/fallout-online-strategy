@@ -126,7 +126,7 @@ The codebase is **mostly scaffolding**. Don't assume completed functionality exi
 
 | Area                              | Status |
 |-----------------------------------|--------|
-| `core` enums (`ActionType`, `MapPoints`, `GameStatus`) | ✅ Defined, with Russian Javadoc on `MapPoints` |
+| `core` enums (`ActionType`, `MapPointsType`, `GameStatus`) | ✅ Defined, with Russian Javadoc on `MapPointsType` |
 | `core` model classes (`Player`, `Node`, `MapPoint`, `Edge`) | ⚠️ Empty class shells |
 | `core` Kafka command/event classes | ⚠️ Skeletons; only `AttackCommand` has a real constructor |
 | Service `@SpringBootApplication` classes | ✅ All 6 services compile |
