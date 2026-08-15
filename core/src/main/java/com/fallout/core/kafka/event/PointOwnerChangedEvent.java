@@ -9,19 +9,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class GameFinishedEvent extends GameEvent {
+public class PointOwnerChangedEvent extends GameEvent {
 
     @NotBlank
     private String nodeId;
 
-    private int winnerPlayerId;
+    private Integer oldOwnerId;
+    private Integer newOwnerId;
 
-    private String reason;
-
-    private int finalTurn;
+    private int newGarrisonCount;
 
     @Override
     public KafkaEventType getKafkaEventType() {
-        return KafkaEventType.GAME_FINISHED;
+        return KafkaEventType.POINT_OWNER_CHANGED;
     }
 }

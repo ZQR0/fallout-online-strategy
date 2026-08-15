@@ -9,19 +9,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class GameFinishedEvent extends GameEvent {
+public class GarrisonUpdatedEvent extends GameEvent {
 
     @NotBlank
     private String nodeId;
 
-    private int winnerPlayerId;
+    private int oldGarrison;
+    private int newGarrison;
 
-    private String reason;
-
-    private int finalTurn;
 
     @Override
     public KafkaEventType getKafkaEventType() {
-        return KafkaEventType.GAME_FINISHED;
+        return KafkaEventType.GARRISON_UPDATED;
     }
 }

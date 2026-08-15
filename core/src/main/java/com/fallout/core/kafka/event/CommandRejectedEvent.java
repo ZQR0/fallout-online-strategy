@@ -10,25 +10,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class BattleReportEvent extends GameEvent {
+public class CommandRejectedEvent extends GameEvent {
 
     @NotBlank
     private String nodeId;
 
-    private int attackerId;
-    private int defenderId;
+    private String originalCommandId;
 
-    private int attackerLosses;
-    private int defenderLosses;
+    private ActionType rejectedCommandType;
 
-    private boolean attackerWon;
-
-    private int survivingGarrison;
-
-    private ActionType triggeredBy;
+    @NotBlank
+    private String rejectionReason;
 
     @Override
     public KafkaEventType getKafkaEventType() {
-        return KafkaEventType.BATTLE_REPORT;
+        return KafkaEventType.COMMAND_REJECTED;
     }
 }

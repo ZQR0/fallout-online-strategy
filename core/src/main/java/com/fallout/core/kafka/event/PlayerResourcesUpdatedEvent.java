@@ -1,7 +1,6 @@
 package com.fallout.core.kafka.event;
 
 import com.fallout.core.enums.KafkaEventType;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,19 +8,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class GameFinishedEvent extends GameEvent {
+public class PlayerResourcesUpdatedEvent extends GameEvent {
 
-    @NotBlank
     private String nodeId;
 
-    private int winnerPlayerId;
+    private int playerId;
+
+    private int oldResources;
+    private int newResources;
+
+    private int resourceDelta;
 
     private String reason;
 
-    private int finalTurn;
-
     @Override
     public KafkaEventType getKafkaEventType() {
-        return KafkaEventType.GAME_FINISHED;
+        return KafkaEventType.PLAYER_RESOURCES_UPDATED;
     }
 }
