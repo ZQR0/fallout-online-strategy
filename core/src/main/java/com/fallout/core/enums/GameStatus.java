@@ -5,6 +5,7 @@ package com.fallout.core.enums;
  * */
 public enum GameStatus {
     CANCELED,
+    SESSION_STARTED,
     WAITING, // means that lobby is not full, need more players to start
     IN_PROGRESS,
     FINISHED;

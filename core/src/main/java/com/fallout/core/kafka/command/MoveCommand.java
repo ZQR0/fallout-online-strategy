@@ -13,10 +13,10 @@ import lombok.Setter;
 public class MoveCommand extends Command {
 
     @NotBlank
-    private String sourceMapPointeId;
+    private String sourceNodeId;
 
     @NotBlank
-    private String targetMapPointId;
+    private String targetNodeId;
 
     @Positive
     private int unitsCount;

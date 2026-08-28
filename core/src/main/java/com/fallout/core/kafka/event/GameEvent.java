@@ -23,6 +23,7 @@ import java.util.UUID;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = PointOwnerChangedEvent.class, name = "POINT_OWNER_CHANGED"),
         @JsonSubTypes.Type(value = GarrisonUpdatedEvent.class, name = "GARRISON_UPDATED"),
+        @JsonSubTypes.Type(value = FortificationUpdatedEvent.class, name = "FORTIFICATION_UPDATED"),
         @JsonSubTypes.Type(value = BattleReportEvent.class, name = "BATTLE_REPORT"),
         @JsonSubTypes.Type(value = GameFinishedEvent.class, name = "GAME_FINISHED"),
         @JsonSubTypes.Type(value = CommandRejectedEvent.class, name = "COMMAND_REJECTED"),

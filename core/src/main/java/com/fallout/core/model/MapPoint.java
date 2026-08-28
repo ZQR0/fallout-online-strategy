@@ -2,16 +2,18 @@ package com.fallout.core.model;
 
 import com.fallout.core.enums.MapPointsType;
 
+import java.util.UUID;
+
 // Точка на карте
 public class MapPoint {
 
-    private String id;
+    private UUID id;
     private String name;
     private double x;
     private double y;
     private MapPointsType type;
 
-    public MapPoint(String id, String name, double x, double y, MapPointsType type) {
+    public MapPoint(UUID id, String name, double x, double y, MapPointsType type) {
         setId(id);
         setName(name);
         setX(x);
@@ -19,12 +21,12 @@ public class MapPoint {
         setType(type);
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
-        if (id == null || id.isBlank()) throw new IllegalArgumentException("Id parameter cannot be null or blank");
+    public void setId(UUID id) {
+        if (id == null) throw new IllegalArgumentException("Id parameter cannot be null");
         this.id = id;
     }
 
