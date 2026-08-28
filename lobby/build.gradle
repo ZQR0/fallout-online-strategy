@@ -42,6 +42,8 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	implementation('com.fallout:core:0.0.1')
 }
 
 dependencyManagement {
