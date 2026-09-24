@@ -175,7 +175,7 @@ Default ports:
 - **Lombok everywhere** — never hand-write getters/setters/builders; use `@Data`, `@Builder`, `@RequiredArgsConstructor`, etc.
 - **Reactive-first** — every Spring Boot service is WebFlux + Netty. Use `Mono`/`Flux`, `ReactiveRedis*`, `@KafkaListener` with reactive templates.
 - **Package root** — `com.fallout.<module>` (e.g. `com.fallout.lobby`, `com.fallout.core`).
-- **Config format** — prefer YAML; `lobby` currently uses `application.properties` (known inconsistency to clean up).
+- **Config format** — prefer YAML; `lobby` currently uses `application.yaml` (known inconsistency to clean up).
 - **Logging** — include `sessionId` via **MDC** on every Kafka handler and WebSocket message.
 
 When adding new code, match the density, naming, and idioms of any existing non-stub file in the same module.

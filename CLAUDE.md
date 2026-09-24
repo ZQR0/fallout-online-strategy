@@ -113,7 +113,7 @@ For local infra (Postgres, Redis, Kafka, Eureka via Docker), a `docker-compose.y
 - **Reactive-first**: every Spring Boot service uses WebFlux + Netty (no servlet stack anywhere). Use `Mono`/`Flux`, `ReactiveRedis*`, `@KafkaListener` with reactive templates.
 - **Package root**: `com.fallout.<module>` (e.g. `com.fallout.lobby`, `com.fallout.core`).
 - **Group**: `com.fallout` in every `build.gradle`; versions `0.0.1-SNAPSHOT` (core/gateway are `0.0.1`).
-- **Config format**: prefer YAML; `lobby` currently uses `application.properties` (format inconsistency to clean up).
+- **Config format**: prefer YAML; `lobby` currently uses `application.yaml` (format inconsistency to clean up).
 - **Logging**: include `sessionId` via MDC on every Kafka handler and WebSocket message.
 
 When adding new code, match the density, naming, and idioms of any existing non-stub file in the same module.
