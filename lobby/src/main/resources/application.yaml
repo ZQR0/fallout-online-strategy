@@ -3,8 +3,8 @@ spring:
     name: lobby
   datasource:
     url: jdbc:postgresql://localhost:5432/fallout_lobby
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
     hikari:
       pool-name: Fallout-Hicari-Pool [Lobby-Service]
@@ -13,9 +13,9 @@ spring:
   liquibase:
     change-log: classpath:db/migrations/changelog-master.yaml
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/${POSTGRES_DB}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: r2dbc:postgresql://localhost:5432/${POSTGRES_DB:fallout}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
   kafka:
     bootstrap-servers: localhost:9092
     producer:
@@ -24,9 +24,9 @@ spring:
   data:
     redis:
       host: localhost
-      port: ${REDIS_PORT}
-      username: ${REDIS_USER}
-      password: ${REDIS_PASSWORD}
+      port: ${REDIS_PORT:6379}
+      username: ${REDIS_USER:default}
+      password: ${REDIS_PASSWORD:password}
       timeout: 60000
       lettuce:
         pool:

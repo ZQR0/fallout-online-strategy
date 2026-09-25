@@ -3,6 +3,7 @@ package com.fallout.lobby.repository;
 import com.fallout.lobby.entity.SessionEntity;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
@@ -19,5 +20,11 @@ public interface GameSessionRepository extends ReactiveCrudRepository<SessionEnt
      * @param joinCode The unique 8-character code used by players to join.
      * @return A Mono emitting the session if found, or empty otherwise.
      */
-    Mono<SessionEntity> findByJoinCode(String joinCode);
+    /**
+     * Retrieves all sessions with a specific status.
+     *
+     * @param status The status to filter by (e.g., WAITING).
+     * @return A Flux emitting sessions matching the status.
+     */
+    Flux<SessionEntity> findByStatus(String status);
 }
