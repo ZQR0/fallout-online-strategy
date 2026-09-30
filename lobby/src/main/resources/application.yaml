@@ -10,8 +10,8 @@ spring:
       pool-name: Fallout-Hicari-Pool [Lobby-Service]
       minimum-idle: 10
       maximum-pool-size: 50
-  liquibase:
-    change-log: classpath:db/migrations/changelog-master.yaml
+  # liquibase:
+  #   change-log: classpath:db/migrations/changelog-master.yaml
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/${POSTGRES_DB:fallout}
     username: ${DB_USER:postgres}

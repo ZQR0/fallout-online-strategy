@@ -126,16 +126,16 @@ The codebase is **mostly scaffolding**. Don't assume completed functionality exi
 
 | Area                              | Status |
 |-----------------------------------|--------|
-| `core` enums (`ActionType`, `MapPointsType`, `GameStatus`) | ✅ Defined, with Russian Javadoc on `MapPointsType` |
-| `core` model classes (`Player`, `Node`, `MapPoint`, `Edge`) | ⚠️ Empty class shells |
-| `core` Kafka command/event classes | ⚠️ Skeletons; only `AttackCommand` has a real constructor |
+| `core` enums (`ActionType`, `GameStatus`, `KafkaEventType`, `MapPointsType`) | ✅ Defined |
+| `core` model classes (`Player`, `Node`, `MapPoint`, `Edge`, `Session`, `GameSnapshot`, `MapNodeStatic`) | ✅ Defined |
+| `core` Kafka command/event classes | ✅ Defined (Attack, Move, Reinforce, etc.) |
 | Service `@SpringBootApplication` classes | ✅ All 6 services compile |
 | REST controllers, WebSocket handlers, Kafka listeners, Redis repos | ❌ None |
 | Lua scripts (`attack.lua`, `move.lua`, `reinforce.lua`) | ❌ None |
-| Liquibase changelogs              | ❌ None |
-| `docker-compose.yml`, Dockerfiles | ❌ None |
+| Liquibase changelogs              | ⚠️ `lobby` has basic init schema |
+| `docker-compose.yml`, Dockerfiles | ✅ `docker-compose.dev.yaml` created (Postgres, Redis, Kafka, Consul) |
 | Eureka / Kafka / Redis / Postgres connection config | ❌ Only `spring.application.name` is set everywhere |
-| Tests                              | ⚠️ Each Spring Boot module has one empty `*ApplicationTests.contextLoads()`; `core` has none |
+| Tests                              | ⚠️ Each Spring Boot module has one empty `*ApplicationTests`; `core` has none |
 
 ---
 
